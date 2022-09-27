@@ -188,7 +188,7 @@ int uv__statx(int dirfd,
   /* __NR_statx make Android box killed by SIGSYS.
    * That looks like a seccomp2 sandbox filter rejecting the system call.
    */
-#if defined(__NR_statx) && !defined(__ANDROID__)
+#if 0 && defined(__NR_statx) && !defined(__ANDROID__)
   return syscall(__NR_statx, dirfd, path, flags, mask, statxbuf);
 #else
   return errno = ENOSYS, -1;
